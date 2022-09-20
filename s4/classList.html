@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="btn">
+        <div class="line1" ></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+    <div class="bar">
+        <h1 class="h1-1">Bar</h1>
+        <h1 class="h1-2">Bar2</h1>
+        <h1 class="h1-1">Bar</h1>
+        <h1 class="h1-2">Bar2</h1>
+    </div>
+    <style>
+        *{
+            margin: 0;
+        }
+        body{
+            overflow: hidden;
+        }
+        .bar{
+            transition: 1s;
+            transform: translateX(100%);
+        }
+        .btn div{
+            height: 5px;
+            width: 10px;
+            background-color: aqua;
+            margin: 10px;
+            transition: 2s;
+        }
+        .btn.active .line1{
+            transform: rotate(-45deg) translate(0px, 10px);
+        }
+        .btn.active .line3{
+            transform: rotate(45deg) translate(0px,-10px);
+        }
+        .btn.active .line2{
+            display: none;
+        }
+        .bar.active{
+            display: block;
+           background-color: blue;
+           color: white;
+           transform: translateX(0);
+        }
+    </style>
+    <script>
+        const button = document.querySelector(".btn")
+        var element = document.querySelector(".bar")
+        console.log(element.classList)
+        button.addEventListener("click",()=>{
+            element.classList.toggle("active")
+            button.classList.toggle("active")
+        })
+    </script>
+</body>
+</html>
